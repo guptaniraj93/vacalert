@@ -29,6 +29,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Roadmap for people looking to contribute
 
 - UI/UX improvements
+- Add tests
 - Create missing interfaces for objects being used as any
 - Persist number of weeks filter
 - Move data storage to IndexedDB for storage
