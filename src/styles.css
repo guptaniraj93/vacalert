@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.bottom-float {
+    position: fixed!important;
+    bottom: 25px;
+    right: 25px;
+}
+
+.m-20{
+    margin: 20px;
+}
+
+.p-20{
+    padding: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mat-card {
+    margin-bottom: 20px;
+}
+
+.mat-dialog-container {
+    background: gray;
+}
+
+.success-text {
+    color: rgb(76, 175, 80) !important;
+}
+
+.primary-text {
+    color: #c2185b !important;
+}
+
+.white-text {
+    color: white;
+}
+
+.mat-dialog-content {
+    max-height: 100vh !important;
+}
+
+.date-form-field {
+    margin: 0 8px 16px 0;
+  }
+
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+  }
+

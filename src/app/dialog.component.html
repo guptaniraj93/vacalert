@@ -1,0 +1,39 @@
+<div>
+  <h2 mat-dialog-title>Hi, please enter details below</h2>
+  <div mat-dialog-content>
+    <p class="primary-text">Alert Name ("Mom Hyderabad" or "Me Delhi" to help identify alerts uniquely)</p>
+    <mat-form-field class="mb-20">
+      <mat-label>Alert Name</mat-label>
+      <input matInput [(ngModel)]="data.alert" maxlength="30">
+      <mat-hint>Please enter name for alert</mat-hint>
+    </mat-form-field>
+    <p class="primary-text">State</p>
+    <mat-form-field class="mb-20">
+      <mat-label>Select state</mat-label>
+      <mat-select (selectionChange)="getDistrictsForState($event)" [(ngModel)]="data.state">
+        <mat-option *ngFor="let state of states" [value]="state.stateId">{{state.stateName}}</mat-option>
+      </mat-select>
+      <mat-hint>Select the state you live in</mat-hint>
+    </mat-form-field>
+    <p class="primary-text" *ngIf="districts.length">District</p>
+    <mat-form-field *ngIf="districts.length" class="mb-20">
+      <mat-label>Select district</mat-label>
+      <mat-select [(ngModel)]="data.district">
+        <mat-option *ngFor="let district of districts" [value]="district.districtId">{{district.districtName}}
+        </mat-option>
+      </mat-select>
+      <mat-hint>Select the district you live in</mat-hint>
+    </mat-form-field>
+    <p class="primary-text" *ngIf="districts.length">Age</p>
+    <mat-form-field *ngIf="districts.length" class="mb-20">
+      <mat-label>Age</mat-label>
+      <input matInput [(ngModel)]="data.age" maxlength="3" inputmode="numeric" [formControl]="age">
+      <mat-hint>Please enter your age</mat-hint>
+      <mat-error *ngIf="age.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+    <button mat-button (click)="onNoClick()">Close</button>
+  </div>
+</div>

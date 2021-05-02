@@ -1,0 +1,32 @@
+<mat-dialog-content>
+    <div>
+        <mat-card *ngIf="!data.length">
+            <mat-card-content>
+                No slots found
+            </mat-card-content>
+        </mat-card>
+        <mat-card *ngFor="let session of data; let i = index">
+            <mat-card-content>
+                <mat-card-title class="success-text">{{session.name}} <h5>(Center ID:{{session.center_id}})</h5>
+                </mat-card-title>
+                <mat-card-subtitle>Block:{{session.block_name}}</mat-card-subtitle>
+                <mat-card-subtitle>District:{{session.district_name}}</mat-card-subtitle>
+                <mat-card-subtitle>Fee Type:{{session.fee_type}}</mat-card-subtitle>
+                <mat-card-subtitle>Timings:{{session.from}}-{{session.to}}</mat-card-subtitle>
+                <mat-card-subtitle>Pin code:{{session.pincode}}</mat-card-subtitle>
+                <mat-card-subtitle class="success-text">Slots</mat-card-subtitle>
+                <div *ngFor="let slot of session.sessions">
+                    <mat-card-subtitle>Date:{{slot.date}}</mat-card-subtitle>
+                    <mat-card-subtitle>Available Capacity:{{slot.available_capacity}}</mat-card-subtitle>
+                    <mat-card-subtitle>Minimum Age:{{slot.min_age_limit}}</mat-card-subtitle>
+                    <mat-card-subtitle>Vaccine:{{slot.vaccine}}</mat-card-subtitle>
+                    <mat-card-subtitle>Time:<span *ngFor="let time of slot.slots">{{time}},</span></mat-card-subtitle>
+                </div>
+                <mat-card-subtitle>Fee:<span *ngFor="let vac of session.vaccine_fees">{{vac.vaccine}}({{vac.fee}}),</span></mat-card-subtitle>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</mat-dialog-content>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+</div>
